@@ -10,10 +10,10 @@ class PageController < HK::Controller
     end
     file = 'pages/' + (section.nil? ? '' : section + '/') + parts.join('_') + '.md'
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-    puts section
-    puts file
     if File.exist?(file)
       @content = markdown.render(File.read(file))
+    elsif !section.nil?
+      @content = markdown.render(File.read('pages/' + section + '/index.md'));
     else
       @content = markdown.render(File.read('pages/index.md'))
     end
