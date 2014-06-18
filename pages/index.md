@@ -1,3 +1,1 @@
-CECI EST L4INDEX
-
-PA PA PA PA PA
+This is the "index" page default content.
